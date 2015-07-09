@@ -1,4 +1,5 @@
 class Encryptor
+  attr_accessor :encrypt
   def cipher
     {'a' => 'n', 'b' => 'o', 'c' => 'p', 'd' => 'q',
      'e' => 'r', 'f' => 's', 'g' => 't', 'h' => 'u',
@@ -20,9 +21,21 @@ class Encryptor
    # 2. Encrypt those letters one at a time, gathering the results
    result = letters.map {|letter| encrypt_letter = encrypt_letter(letter) }.join('')
   end
+
+  def decrypt(string)
+    letters = string.split('')
+   # 2. Encrypt those letters one at a time, gathering the results
+   result = letters.map {|letter| encrypt_letter = encrypt_letter(letter) }.join('')
+  end
+
 end
 
-
+e = Encryptor.new
+encrypt_result =  e.encrypt("Hello")
+puts "This is the encrypted message: "
+p encrypt_result
+puts "This is the decrypted message:"
+p e.decrypt(encrypt_result)
 
 
 
